@@ -1,5 +1,19 @@
-require 'dig_bang/version'
+# frozen_string_literal: true
+
+class Hash
+  def dig!(*keys)
+    DigBang.fetch_all(self, keys)
+  end
+end
+
+class Array
+  def dig!(*keys)
+    DigBang.fetch_all(self, keys)
+  end
+end
 
 module DigBang
-  # Your code goes here...
+  def self.fetch_all(fetchable, keys)
+    keys.reduce(fetchable) { |a, e| a.fetch(e) }
+  end
 end

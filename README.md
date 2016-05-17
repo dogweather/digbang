@@ -1,9 +1,24 @@
 # DigBang
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dig_bang`. To experiment with that code, run `bin/console` for an interactive prompt.
+Here’s `Hash#dig!` and `Array#dig!`. It’s similar to Ruby 2.3’s `Hash#dig` and `Array#dig`, but raises an exception instead of returning nil when a key isn’t found.
 
-TODO: Delete this and the text above, and describe your gem
 
+```ruby
+places = { world: { uk: true } }
+ 
+places.dig  :world, :uk # true
+places.dig! :world, :uk # true
+ 
+places.dig  :world, :uk, :bvi # nil
+places.dig! :world, :uk, :bvi # KeyError: Key not found: :bvi
+```
+
+## dig is to #[] as #dig! is to #fetch
+
+Ruby 2.3 introduces the new Hash#dig method for safe extraction of a nested value. It’s the equivalent of a safely repeated Hash#[].
+
+ #dig!, on the other hand, is the equivalent of a safely repeated Hash#fetch. It’s “safely unsafe”😉 raising the appropriate KeyError anywhere down the line, or returning the value if it exists.
+ 
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -19,23 +34,4 @@ And then execute:
 Or install it yourself as:
 
     $ gem install dig_bang
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dig_bang.
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 

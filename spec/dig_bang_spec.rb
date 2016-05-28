@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'spec_helper'
 require 'dig_bang'
 
 DOG = {
@@ -8,9 +7,9 @@ DOG = {
   vaccinations: {
     '2011-07-20' => :all
   }
-}.freeze
+}
 
-DOGS = [DOG].freeze
+DOGS = [DOG]
 
 
 describe Array do

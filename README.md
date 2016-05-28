@@ -56,7 +56,7 @@ places.dig! :world, :usa, 6 # IndexError: index 6 outside of array bounds: -4...
 **In combination with `#dig`:**
 
 ```ruby
-places.dig!(:word, :usa).dig(6) # nil
+places.dig!(:world, :usa).dig(6) # nil
 ```
 
 ## dig is to #[] as #dig! is to #fetch

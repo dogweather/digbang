@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dogweather/digbang.svg?branch=master)](https://travis-ci.org/dogweather/digbang)
+
 # DigBang
 
 Here’s `Hash#dig!` and `Array#dig!`. They're similar to Ruby 2.3’s `Hash#dig` and `Array#dig`, but raise an exception instead of returning nil when a key isn’t found.

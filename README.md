@@ -29,11 +29,11 @@ places.dig! :world, :uk, :alaska # KeyError: Key not found: :alaska
 airports = %w(lhr sfo nyc)
 
 # Same result when the index is valid
-airports.dig 2  # 'nyc'
+airports.dig  2 # 'nyc'
 airports.dig! 2 # 'nyc'
 
 # A relevant error when the index is out of bounds
-airports.dig 5  # nil
+airports.dig  5 # nil
 airports.dig! 5 # IndexError: index 5 outside of array bounds: -3...3
 ```
 
@@ -41,15 +41,15 @@ airports.dig! 5 # IndexError: index 5 outside of array bounds: -3...3
 ```ruby
 places = {
   world: {
-    uk: %w(lhr lgw man stn),
+    uk:  %w(lhr lgw man stn),
     usa: %w(nyc pdx sfo dca)
   }
 }
 
-places.dig :world, :usa, 2  # 'sfo'
+places.dig  :world, :usa, 2 # 'sfo'
 places.dig! :world, :usa, 2 # 'sfo'
 
-places.dig :world, :usa, 4  # nil
+places.dig  :world, :usa, 4 # nil
 places.dig! :world, :usa, 6 # IndexError: index 6 outside of array bounds: -4...4
 ```
 

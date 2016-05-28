@@ -26,15 +26,37 @@ places.dig! :world, :uk, :alaska # KeyError: Key not found: :alaska
 **In an array:**
 
 ```ruby
-cities = %w(london paris nyc)
+airports = %w(lhr sfo nyc)
 
 # Same result when the index is valid
-cities.dig(2)  # 'nyc'
-cities.dig!(2) # 'nyc'
+airports.dig 2  # 'nyc'
+airports.dig! 2 # 'nyc'
 
 # A relevant error when the index is out of bounds
-cities.dig(5)  # nil
-cities.dig!(5) # IndexError: index 5 outside of array bounds: -3...3
+airports.dig 5  # nil
+airports.dig! 5 # IndexError: index 5 outside of array bounds: -3...3
+```
+
+**In a mixed data structure:**
+```ruby
+places = {
+  world: {
+    uk: %w(lhr lgw man stn),
+    usa: %w(nyc pdx sfo dca)
+  }
+}
+
+places.dig :world, :usa, 2  # 'sfo'
+places.dig! :world, :usa, 2 # 'sfo'
+
+places.dig :world, :usa, 4  # nil
+places.dig! :world, :usa, 6 # IndexError: index 6 outside of array bounds: -4...4
+```
+
+**In combination with `#dig`:**
+
+```ruby
+places.dig!(:word, :usa).dig(6) # nil
 ```
 
 ## dig is to #[] as #dig! is to #fetch
@@ -42,6 +64,8 @@ cities.dig!(5) # IndexError: index 5 outside of array bounds: -3...3
 Ruby 2.3 introduces the new Hash#dig method for safe extraction of a nested value. It’s the equivalent of a safely repeated Hash#[].
 
  #dig!, on the other hand, is the equivalent of a safely repeated Hash#fetch. It’s “safely unsafe”😉 raising the appropriate KeyError anywhere down the line, or returning the value if it exists.
+
+It's also just 18 lines of code.
 
 ## Installation
 

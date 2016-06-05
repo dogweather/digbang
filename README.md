@@ -7,6 +7,8 @@ Here’s `Hash#dig!` and `Array#dig!`. They're similar to Ruby 2.3’s `Hash#dig
 **In a hash:**
 
 ```ruby
+require 'dig_bang'
+
 places = {
   world: {
     uk: true,

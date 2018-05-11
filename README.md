@@ -61,7 +61,9 @@ places.dig! :world, :usa, 6 # IndexError: index 6 outside of array bounds: -4...
 places.dig!(:world, :usa).dig(6) # nil
 ```
 
-## dig is to #[] as #dig! is to #fetch
+## The philosohy
+
+**`#dig!` is to `#fetch` as `#dig` is to `#[]`**
 
 Ruby 2.3 introduces the new Hash#dig method for safe extraction of a nested value. It’s the equivalent of a safely repeated Hash#[].
 

@@ -2,7 +2,7 @@
 
 # DigBang
 
-Here’s `Hash#dig!` and `Array#dig!`. They're similar to Ruby 2.3’s `Hash#dig` and `Array#dig`, but raise an exception instead of returning nil when a key isn’t found.
+Here’s `Hash#dig!` and `Array#dig!`. They're similar to Ruby’s `Hash#dig` and `Array#dig`, but they raise an exception instead of returning nil when a key isn’t found. 
 
 **In a hash:**
 

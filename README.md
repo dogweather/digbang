@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/dogweather/digbang.svg?branch=master)](https://travis-ci.org/dogweather/digbang)
 [![Maintainability](https://api.codeclimate.com/v1/badges/980c92dcf66584a00ea9/maintainability)](https://codeclimate.com/github/dogweather/digbang/maintainability)
 
 # DigBang
